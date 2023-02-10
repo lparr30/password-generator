@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-allowableCharacters = ''
+var allowableCharacters = ''
 var alpha = 'abcdefghijklmnopqrstuvwxyz'
 var caps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 var num = '1234567890'
@@ -21,11 +21,12 @@ function userPreferences() {
         allowableCharacters += alpha;
     }
     console.log(getRandomCharacter(allowableCharacters));
+    return passLength;
 }
 //ask for password length
 function getPassLength() {
     var length = prompt('How many characters would you like in your password?');
-        if (8 < length < 128){
+        if (length < 8 || length > 128){
             var notFit = prompt('Error: your password must have a minimum of 8 and maximum of 128 characters!');
             return notFit;
         }
@@ -74,11 +75,12 @@ function writePassword() {
 
   passwordText.value = password;
 
+  console.log('test');
+  return password;
+
 }
 
+//display password on screen
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", userPreferences);
-
-
-//display password on screen
